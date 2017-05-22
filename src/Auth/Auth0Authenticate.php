@@ -39,6 +39,13 @@ class Auth0Authenticate extends BaseAuthenticate
 
     }
 
+    public function implementedEvents()
+    {
+       return [
+           'Auth.logout' => 'logout'
+       ];
+    }
+
     public function authenticate(Request $request, Response $response)
     {
         $user = $this->getUser($request);
@@ -47,7 +54,7 @@ class Auth0Authenticate extends BaseAuthenticate
         }
         return $user;
     }
-    
+
      public function logout()
     {
     	$this->_auth0->logout();
@@ -78,4 +85,4 @@ class Auth0Authenticate extends BaseAuthenticate
         return $this->_configRead('redirect_uri');
     }
 
-} 
+}
