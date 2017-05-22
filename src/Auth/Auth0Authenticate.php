@@ -8,7 +8,7 @@ use \Cake\Network\Request;
 use \Cake\Network\Response;
 
 
-class Auth0Authenticate extends BaseAuthenticate
+abstract class Auth0Authenticate extends BaseAuthenticate
 {
 
     private $_auth0;
@@ -42,7 +42,8 @@ class Auth0Authenticate extends BaseAuthenticate
     public function implementedEvents()
     {
        return [
-           'Auth.logout' => 'logout'
+           'Auth.logout' => 'logout',
+           'Auth.afterIdentify' => 'afterIdentify'
        ];
     }
 
@@ -55,7 +56,8 @@ class Auth0Authenticate extends BaseAuthenticate
         return $user;
     }
 
-     public function logout()
+
+    public function logout()
     {
     	$this->_auth0->logout();
     }
@@ -85,4 +87,5 @@ class Auth0Authenticate extends BaseAuthenticate
         return $this->_configRead('redirect_uri');
     }
 
+    public abstract function afterIdentify($data);
 }
