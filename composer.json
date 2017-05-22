@@ -1,5 +1,5 @@
 {
-    "name": "jsoftb/auth0",
+    "name": "leggett/auth0",
     "description": "Auth0 Authenticate object for CakePHP 3.x",
     "type": "cakephp-plugin",
     "require": {
@@ -22,6 +22,11 @@
         {
             "name": "Juan Giménez",
             "homepage": "http://www.montcat.org/portfolio",
+            "role": "Author"
+        },
+        {
+            "name": "Daniel Cole",
+            "homepage": "http://github.com/optii",
             "role": "Author"
         }
     ],
